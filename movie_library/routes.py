@@ -1,5 +1,14 @@
-from flask import Blueprint, render_template, session, request, redirect
+from flask import (
+    Blueprint,
+    render_template,
+    session,
+    request,
+    redirect,
+    current_app,
+    url_for,
+)
 from movie_library.forms import MovieForm
+import uuid
 
 
 pages = Blueprint(
@@ -14,18 +23,23 @@ def index():
         title="Movies Watchlist",
     )
 
+
 @pages.route("/add", methods=["GET", "POST"])
 def add_movie():
     form = MovieForm()
 
-    if request.method == "POST":
-        pass
+    if form.validate_on_submit():
+        movie = {
+            "title": form.title.data,
+            "year": form.year.data,
+            "director": form.director.data,
+            "_uid": uuid.uuid4().hex,
+        }
+        current_app.db.movie.insert_one(movie)
+        return redirect(url_for(".index"))
 
-    return render_template(
-        "new_movie.html",
-        title="Add Movie",
-        form=form
-    )
+    return render_template("new_movie.html", title="Add Movie", form=form)
+
 
 @pages.get("/toggle_theme")
 def toggle_theme():
