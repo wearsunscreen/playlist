@@ -4,9 +4,9 @@
   --text-muted: #595959;
 
   --background-color: #fff;
-  --accent-colour: #f56565;
-  --accent-colour-2: #3bb54a;
-  --tag-colour: #e5e5e5;
+  --accent-color: #f56565;
+  --accent-color-2: #3bb54a;
+  --tag-color: #e5e5e5;
 
   --border: 3px solid #000;
 }
@@ -17,9 +17,9 @@
   --text-muted: #595959;
 
   --background-color: #1c2023;
-  --accent-colour: #f56565;
-  --accent-colour-2: #3bb54a;
-  --tag-colour: var(--accent-colour-2);
+  --accent-color: #f56565;
+  --accent-color-2: #3bb54a;
+  --tag-color: var(--accent-color-2);
 
   --border: 3px solid #fff;
 }
@@ -93,7 +93,7 @@ body {
 }
 
 .header__logo:hover {
-  color: var(--accent-colour);
+  color: var(--accent-color);
 }
 
 .logo__icon {
@@ -128,15 +128,15 @@ body {
   align-items: center;
   padding: 0 0.5rem;
 
-  /* Removes standard underlines from these links. Explicitly inherits text colour from the body */
+  /* Removes standard underlines from these links. Explicitly inherits text color from the body */
   text-decoration: none;
   color: inherit;
 }
 
-/* Sets the background colour and text colour of our navigation items when the item has 
+/* Sets the background color and text color of our navigation items when the item has 
    the .nav__link--active class, indicating the current page */
 .nav__link--active {
-  background: var(--accent-colour);
+  background: var(--accent-color);
   color: var(--text-light);
 }
 
@@ -187,15 +187,15 @@ body {
   font-size: inherit;
   font-family: inherit;
 
-  /* Slows the background colour change effect when we hover over the button, making
-       it take 0.1s with an accelerating colour change */
+  /* Slows the background color change effect when we hover over the button, making
+       it take 0.1s with an accelerating color change */
   transition: background 0.1s ease-in;
 }
 
 /* Utility class to use on links within text. */
 .link {
   text-decoration: none;
-  color: var(--accent-colour);
+  color: var(--accent-color);
   white-space: nowrap;
 }
 
